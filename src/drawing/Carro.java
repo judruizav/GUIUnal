@@ -39,9 +39,10 @@ public class Carro extends JPanel implements ActionListener, KeyListener{
         poligono.addPoint(110+x,30+y);
         poligono.addPoint(140+x,60+y);
         g.drawPolygon(poligono);
-        g.setColor(Color.GREEN);
+        g.setColor(Color.RED);
         g.fillPolygon(poligono);
-        g.drawRect(x, y, 150, 125);
+        g.setColor(Color.BLACK);
+        g.drawRect(10+x, 30+y, 150, 120);
         
     }
     @Override
@@ -70,5 +71,9 @@ public class Carro extends JPanel implements ActionListener, KeyListener{
     @Override
     public void keyReleased(KeyEvent e) {
         
+    }
+    
+    public Rectangle obtenerRectangulo(){
+      return new Rectangle(10+x, 30+y, 150, 120);    
     }
 }

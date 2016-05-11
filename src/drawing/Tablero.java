@@ -17,24 +17,28 @@ import java.awt.event.KeyEvent;
  * @author Estudiante
  */
 public class Tablero extends JPanel implements ActionListener, KeyListener{
-    private Timer timer;
+ private Timer timer;
     private Carro personajePrincipal;
-    
+    private Carro personajePrincipal2;
     public Tablero(){
       this.setFocusable(true);
       this.addKeyListener(this);
       this.personajePrincipal= new Carro(100,200);
+      this.personajePrincipal2= new Carro(300,200);
       this.timer = new Timer(20,this);
       this.timer.start();
     }
-        @Override
+    @Override
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
       this.personajePrincipal.paintComponent(g);
+      this.personajePrincipal2.paintComponent(g);
+      g.fillRect(200, 30, 100, 30);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
       this.personajePrincipal.actionPerformed(e);
+      validarColisiones();
       repaint();
     }
     
@@ -51,7 +55,14 @@ public class Tablero extends JPanel implements ActionListener, KeyListener{
     @Override
     public void keyTyped(KeyEvent e) {
       this.personajePrincipal.keyTyped(e);
-        
+    }
+    
+    public void validarColisiones(){
+      Rectangle r1= this.personajePrincipal.obtenerRectangulo();
+      Rectangle r2= this.personajePrincipal2.obtenerRectangulo();
+      if(r1.intersects(r2)){
+        System.out.println("Mi perrito se consiguio la licencia en un tamal, no?");
+      }
     }
     
 }
