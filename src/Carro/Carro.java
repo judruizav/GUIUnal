@@ -33,7 +33,7 @@ public class Carro extends JPanel implements ActionListener, KeyListener{
     private int t2x=100;
     private int t3x=150;
     private int t4x=200;
-     private int t1y=75;
+    private int t1y=75;
     private int t2y=50;
     private int t3y=50;
     private int t4y=75;
@@ -65,7 +65,7 @@ public class Carro extends JPanel implements ActionListener, KeyListener{
         g.drawLine(0, 175, 1000, 175);
         g.drawOval(c3x, c3y, 40, 40);
         g.drawOval(c4x, c4y, 40, 40);
-        g.drawRect(rx, (ry-25), 250, 120);
+        g.drawRect(rx, (ry-25), 250, 125);
     }
     
 
